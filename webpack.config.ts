@@ -20,7 +20,8 @@ const config: webpack.Configuration = {
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "[name].[contenthash].js",
-        clean:true
+        clean:true,
+        publicPath: '/',
     },
     plugins: [
       new HtmlWebpackPlugin({ template: path.resolve(__dirname,'public','index.html') }),
@@ -29,10 +30,9 @@ const config: webpack.Configuration = {
     devtool:'inline-source-map',
     devServer:{
       port:3000,
-      open:true
+      open:true,
+      historyApiFallback: true
     }
-    
-  
 }
 
 
